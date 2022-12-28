@@ -1,4 +1,4 @@
-let todoItems;
+let todoItems: any;
 
 // api
 function fetchTodoItems() {
@@ -16,7 +16,8 @@ function fetchTodos() {
   return todos;
 }
 
-function addTodo(todo) {
+function addTodo(todo): void {
+  // 리턴값이 없으면 명시적으로 void
   todoItems.push(todo);
 }
 
@@ -35,7 +36,7 @@ function logFirstTodo() {
 }
 
 function showCompleted() {
-  return todoItems.filter(item => item.done);
+  return todoItems.filter((item) => item.done);
 }
 
 // TODO: 아래 함수의 내용을 채워보세요. 아래 함수는 `addTodo()` 함수를 이용하여 2개의 새 할 일을 추가하는 함수입니다.

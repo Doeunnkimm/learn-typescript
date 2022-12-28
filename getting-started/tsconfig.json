@@ -1,0 +1,7 @@
+{
+    "compilerOptions": { // 프로젝트 컴파일 옵션
+        "allowJs": true, // 타입스크립트 파일 안에서 자바스크리븥 허용
+        "checkJs": true, // @ts-check와 같은 기능
+        "noImplicitAny": true, // 어떠한 타입이라도 지정해주어야 함
+    }
+}
