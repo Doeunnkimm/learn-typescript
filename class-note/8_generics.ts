@@ -150,7 +150,7 @@ interface LenghtType {
 }
 // 제네릭으로 받은 타입에는 length가 있을 것이라는 것을
 // extends를 통해 알려주자
-function logTextLength2<T extends LenghtType>(text: T): T {
+function logTextLength2<T extends LenghtType>(text: T) {
   console.log(text.length);
   // return text;
 }
