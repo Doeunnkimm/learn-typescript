@@ -60,7 +60,7 @@ function fetchContacts(): Promise<Contact[]> {
       },
     },
   ];
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     // 2초 뒤에 위 데이터들이 온다고 묘사한 것!
     setTimeout(() => resolve(contacts), 2000);
   });
@@ -81,7 +81,7 @@ class AddressBook {
       리턴값을 아예 Promise의 value로 Contact[]으로 했기 때문에
       response에 마우스를 올려보아도 Contact[]로 뜨게 됨
     */
-    fetchContacts().then((response) => {
+    fetchContacts().then(response => {
       this.contacts = response;
     });
   }
@@ -90,17 +90,17 @@ class AddressBook {
 
   /* 지금 함수마다 리턴이 있는데 리턴타입을 지정해 주지 않아서 에러가 발생하고 있는 것 */
   findContactByName(name: string): Contact[] {
-    return this.contacts.filter((contact) => contact.name === name);
+    return this.contacts.filter(contact => contact.name === name);
   }
 
   findContactByAddress(address: string): Contact[] {
-    return this.contacts.filter((contact) => contact.address === address);
+    return this.contacts.filter(contact => contact.address === address);
   }
   // home, office, studio
   // ==> enum(제한한 문자열의 집합)으로 타입을 지정해 주자
   findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
-      (contact) => contact.phones[phoneType].num === phoneNumber
+      contact => contact.phones[phoneType].num === phoneNumber
     );
   }
   // 들어오는 값의 오탈자가 들어오는 경우 문제가 생길 수 있음
@@ -115,13 +115,16 @@ class AddressBook {
 
   displayListByName(): string[] {
     // 기존 contacts 배열에서 name만 가져와서 새로운 배열을 리턴하는 것
-    return this.contacts.map((contact) => contact.name);
+    return this.contacts.map(contact => contact.name);
   }
 
   displayListByAddress(): string[] {
-    return this.contacts.map((contact) => contact.address);
+    return this.contacts.map(contact => contact.address);
   }
   /* ------------------------------------------------ */
 }
+
+var div = document.querySelector('div') as HTMLDivElement; // 무조건 있다고 단언하는 것
+div.innerText;
 
 new AddressBook();
